@@ -58,9 +58,6 @@ def main():
     M = connect_to_mailbox()
     n = count_for_all_inboxes(M)
 
-    # rounding to nearest 10
-    n = int(n/10)*10
-
     if old_n > n:
         logging.error(
             f"Number of submissions shouldn't go down({old_n} to {n}). Aborting!"
