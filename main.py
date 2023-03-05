@@ -3,6 +3,7 @@ import os
 import dotenv
 from imaplib import IMAP4_SSL
 import logging
+import math
 
 log_format = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(filename='log', level=logging.DEBUG, format=log_format)
@@ -56,6 +57,9 @@ def main():
 
     M = connect_to_mailbox()
     n = count_for_all_inboxes(M)
+
+    # rounding to nearest 10
+    n = int(n/10)*10
 
     if old_n > n:
         logging.error(
