@@ -70,6 +70,10 @@ def main():
     with open(output_loc, "w") as f:
         f.write(str(n))
 
+    logging.info("Logging out of mailbox...")
+    M.close()
+    M.logout()
+
     logging.info("all done!")
     logging.shutdown()
 
